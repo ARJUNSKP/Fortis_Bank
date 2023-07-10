@@ -14,7 +14,7 @@
       </a>
     </div>
 </nav> -->
-<nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <h2 class="px-5"><i class="fa-brands fa-gg-circle fa-flip fa-lg mx-3"></i><label class="text-warning">Fortis</label> Bank</h2>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,26 +24,84 @@
     <div class="collapse navbar-collapse mx-5" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home <i class="bi bi-house-check-fill text-success"></i></a>
+            <button class="btn" >Home <i class="bi bi-house-check-fill text-success" id="icon1"></i></button>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">ViewProfile <i class="bi bi-person-check text-primary"></i></a>
+            <button class="btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">ViewProfile <i class="bi bi-person-check text-primary" id="icon2"></i></button>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">BalanceEnquiry <i class="bi bi-coin text-primary"></i></a>
+            <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">BalanceEnquiry <i class="bi bi-wallet text-primary"  id="icon3"></i></button>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">MoneyTransfer <i class="fa-solid fa-money-bill-transfer text-primary"></i></a>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#moneytransfer">MoneyTransfer <i class="fa-brands fa-bitcoin text-primary" id="icon4"></i></button>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">AccountStatement <i class="fa-solid fa-file-invoice-dollar text-primary"></i></a>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#accountstatement">AccountStatement <i class="fa-solid fa-file-invoice-dollar text-primary"  id="icon5"></i></button>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">DeleteAccount <i class="bi bi-person-fill-dash text-primary"></i></a>
+            <a class="nav-link" href="#">DeleteAccount <i class="bi bi-person-fill-dash text-primary"  id="icon6"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">LogOut <i class="fa-solid fa-person-walking-dashed-line-arrow-right text-danger"></i></a>
+            <a class="nav-link" href="#">LogOut <i class="fa-solid fa-person-walking-dashed-line-arrow-right text-danger"  id="icon7"></i></a>
           </li>
         </ul>
     </div>
   </nav>
+  <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="text-center">
+            <h3>Profile Details</h3>
+            <img src="https://i.postimg.cc/zXzcQQFV/pngwing-com-2.png" alt="..." width="120px" height="120px">
+            <div class="row">
+              <label class="col">UserName:</label>
+              <label class="col">Account Number:</label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer mb-3">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel">BalanceEnquiry</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>
+        <img src="https://i.postimg.cc/3J7KtwcS/pngtree-cartoon-bank-payment-element-image-2281036.png" alt="..." width="300px" hight="300px">
+      </div>
+      <div>
+        hii "username"
+        <h3>Your Account Number is "1234569777"</h3>
+        <h4>Account Balance:-<label>1000000000</label></h4>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="moneytransfer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Money Transfer</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div id="transfer" class="modal-body ">
+            <img class="my-4" src="https://i.postimg.cc/mk1CpCgL/pngwing-com-3.png" alt="..." width="100px" height="100px"/>
+            <input class="w-75"  type="text" name="tranferAccountnumber" placeholder="Recipient Account Number" id="tcnum">
+            <input class="w-75" type="text" name="Amount" placeholder="Amount to Transfer" id="tamount">
+            <button type="button" class="btn btn-success w-75">Transfer</button>
+        </div>
+        <div class="modal-footer my-4">
+        </div>
+      </div>
+    </div>
+  </div>
+  

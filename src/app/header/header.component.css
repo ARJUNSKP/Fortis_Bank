@@ -5,3 +5,13 @@
 nav{
     border-bottom: 1px solid #8888883b;
 }
+/* #model{
+    dispaly:flex;
+    flex-diraction:collum;
+} */
+#transfer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}

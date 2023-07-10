@@ -8,6 +8,7 @@ import { SinupComponent } from './sinup/sinup.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { AccountstatementComponent } from './accountstatement/accountstatement.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from './home/home.component';
     SinupComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    AccountstatementComponent
   ],
   imports: [
     BrowserModule,
