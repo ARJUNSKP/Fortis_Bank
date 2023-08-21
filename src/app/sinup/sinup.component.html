@@ -1,14 +1,20 @@
 <div class="maindiv" class="row" style="height:100vh">
     <div id="signform" class="col-lg-6 col-md-6 col-sm-6 bg-warning text-center">
-        <form accept="">
+        <form [formGroup]="signUpModelForm" accept="">
             <h1 class="my-4"><label>SignUp</label></h1>
             <ul>
+                <li><label for="acnumber">Account Number</label></li>
+                <li><input formControlName="acno" type="text" placeholder="Account Number" class="w-75 px-3" id="acnumber" name="acno"></li>
+                <li><p *ngIf="signUpModelForm.get('acno')?.errors&&signUpModelForm.get('uname')?.touched">Accept Numbers only</p></li>
+            </ul>
+            <ul>
                 <li><label for="username">UserName</label></li>
-                <li><input type="text" placeholder="UserName" class="w-75 px-3" id="username" name="uname"></li>
+                <li><input formControlName="uname" type="text" placeholder="UserName" class="w-75 px-3" id="username" name="uname"></li>
+                <li><p *ngIf="signUpModelForm.get('uname')?.errors&&signUpModelForm.get('uname')?.touched">Accept letters only</p></li>
             </ul>
             <ul>
                 <li><label for="age">Age</label></li>
-                <li><input type="text" placeholder="Age" class="w-75 px-3" id="age" name="uage"></li>
+                <li><input  type="text" placeholder="Age" class="w-75 px-3" id="age" name="uage"></li>
             </ul>
             <ul>
                 <li><label for="pnumber">Phone number</label></li>
@@ -26,13 +32,18 @@
             </ul>
             <ul>
                 <li><label for="password">Password</label></li>
-                <li><input type="text" placeholder="Password" class="w-75 px-3" id="password" name="upassword"></li>
+                <li><input formControlName="psw"  type="password" placeholder="Password" class="w-75 px-3" id="password" name="upassword"></li>
+                <li><p *ngIf="signUpModelForm.get('psw')?.errors&&signUpModelForm.get('psw')?.touched">Accept Numbers and letters only</p></li>
             </ul>
             <ul>
                 <li><label for="conpassword">Conform Password</label></li>
-                <li><input type="text" placeholder="Conform Password" class="w-75 px-3" id="conpassword" name="ucpassword"></li>
+                <li><input formControlName="cpsw"  type="password" placeholder="Conform Password" class="w-75 px-3" id="conpassword" name="ucpassword"></li>
+                <li><p *ngIf="signUpModelForm.get('cpsw')?.errors&&signUpModelForm.get('cpsw')?.touched">Accept Numbers and letters only</p></li>
             </ul>
-            <button type="submit" class="btn btn-success w-25 mt-2"><i class="fa-brands fa-gg-circle fa-flip fa-2xl mx-3"></i></button>
+            <ul *ngIf="pswMatch">
+                <p class="text-danger">Password doesnt Match</p>
+            </ul>
+            <button (click)="signup()" type="submit" class="btn btn-success w-25 mt-2">Sign Up</button>
         </form>
     </div>
     <div id="signimg" class="col-lg-6 col-md-6 col-sm-6 pt-6 h-100">

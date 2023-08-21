@@ -1,0 +1,6 @@
+<div *ngIf="ChildAcno" class="p-5 my-2 bg-light w-50 container" style=" box-shadow: 10px 10px 10px 10px #888888;">
+    <h2>Are you Sure !</h2>
+    <h3>Do You Want To Delete Your Bank Account {{ChildAcno}} ?</h3>
+    <button (click)="acDetete()" id="yes" class="btn btn-outline-danger">yes</button>
+    <button (click)="notDelete()" id="no" class="btn btn-outline-success ms-3">No</button>
+</div>

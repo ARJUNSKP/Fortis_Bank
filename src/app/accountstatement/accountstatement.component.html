@@ -1,7 +1,6 @@
-<app-header></app-header>
 <div id="statement_div">
     <div class="row" id="statement">
-        <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="col-lg-6 col-md-12 col-sm-12 text-center" id="caro">
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active" data-bs-interval="5000" style="padding-top: 4rem">
@@ -24,39 +23,51 @@
                 </button>
               </div>
         </div>
-        <div class="col-lg-6 col-md-12 col-sm-12 bg-warning">
-            <form>
+        <div class="col-lg-6 col-md-12 col-sm-12 bg-warning" id="statement_data">
+            <form >
                 <div class="text-center mt-5">
                     <h2>Account Statement</h2>
                     <h4 id="data">2022</h4>
+                    <h5>{{date | date : 'medium'}}</h5>
                 </div>
+                <div class=" text-end my-4 mx-3"><button (click)="backHome()" type="btn" class="btn btn-outline-success">back To Home <i class="bi bi-house-check-fill text-success" id="icon1"></i></button></div>
                 <div class="text-end my-2">
-                    <div id="btngroup" class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                        <label class="btn btn-outline-secondary" for="btnradio1">ALL</label>
-                  
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-secondary" for="btnradio2">Debit</label>
-                  
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                        <label class="btn btn-outline-secondary" for="btnradio3">Credit</label>
+                    <div class="text-start mt-2 mx-3">
+                      <input  (change)="datedata($event)" type="date" class="" placeholder="Sorting Date :27/7/23" style="border-radius: 5rem;">
+                    </div>
+                    <div id="btngroup" class="btn-group my-2 mx-3" role="group" aria-label="Basic radio toggle button group">
+                      <!-- <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked> -->
+                      <button (click)="searchKeyChange('')" type="button" class="btn btn-outline-secondary" for="btnradio1">ALL</button>
+                
+                      <!-- <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off"> -->
+                      <button (click)="searchKeyChange('DEBIT')" type="button" class="btn btn-outline-secondary" for="btnradio2">Debit</button>
+                
+                      <!-- <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off"> -->
+                      <button (click)="searchKeyChange('CREDIT')" type="button" class="btn btn-outline-secondary" for="btnradio3">Credit</button>
                     </div>
                 </div>
-                <table class="table table-light table-striped">
+                <table class="table table-light table-striped text-center container w-100" id="statement-table">
                     <thead>
                         <tr>
                           <th scope="col">#</th>
                           <th scope="col">Type</th>
                           <th scope="col">Amount</th>
+                          <th scope="col">Account Holder Name</th>
                           <th scope="col">Date</th>
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <tr *ngFor="let i of transaction | data : searchKey:'type' | data : searchDate:'date';let j = index">
+                          <td>{{j+1}}</td>
+                          <td>{{i.type}}</td>
+                          <td>{{i.amount}}</td>
+                          <td>{{i.user}}</td>
+                          <td>{{i.date}}</td>
+                        </tr>
                     </tbody>
                 </table>
             </form>
+            <button class="btn btn-outline-primary mx-2 mb-5" (click)="convertPdf()">Download PDF</button>
         </div>
     </div>
 </div>
-<app-footer></app-footer>

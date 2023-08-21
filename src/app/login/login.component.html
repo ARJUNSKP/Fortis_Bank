@@ -1,26 +1,29 @@
 <div id="main_login">
     <div id="sub_main" class="row">
-        <div id="discription" class="col-lg-6 col-md-6 col-sm-6  text-center">
-            <h1 class="mb-5"><label class="text-warning">fortis</label> Bank<i class="fa-brands fa-gg-circle fa-flip fa-lg mx-3"></i></h1>
+        <div id="discription" class="col-lg-6 col-md-6   text-center">
+            <h1 class="mb-5"><label class="text-warning">fortis</label> Bank<i id="icon" class="fa-brands fa-gg-circle fa-flip fa-lg mx-3"></i></h1>
             <h3 class="mt-5 mx-2"><p>" Invest Fortis Bank Are Geared Towards Success "</p></h3>
         </div>
-        <div id="formlist" class="bg-warning col-lg-6 col-md-6 col-sm-6">
-            <form accept="">
+        <div id="formlist" class="bg-warning col-lg-6 col-md-6">
+            <form [formGroup]="loginvalidation" accept="">
                 <label class="pb-3"><h1>Login</h1></label>
                 <ul>
                     <li><label for="username">UserName</label></li>
-                    <li><input type="text" id="username" placeholder="UserName" name="uloginname"></li>
+                    <li><input formControlName="uname" type="text" id="username" [placeholder]="placeholddata" name="uloginname"></li>
+                    <li class="text-center text-danger" *ngIf="loginvalidation.get('uname')?.errors&&loginvalidation.get('uname')?.touched"><label>Accept Letters and Number only</label></li>
                 </ul>
                 <ul>
                     <li><label for="accountnumber">Account Number</label></li>
-                    <li><input type="text" id="accountnumber" placeholder="Account Number" name="uloginAccount"></li>
+                    <li><input formControlName="acno" type="text" (change)="accnochange($event)" id="accountnumber" placeholder="Account Number" name="uloginAccount"></li>
+                    <li class="text-center text-danger" *ngIf="loginvalidation.get('acno')?.errors&&loginvalidation.get('acno')?.touched"><label>Accept Number only</label></li>
                 </ul>
                 <ul>
                     <li><label for="password">Password</label></li>
-                    <li><input type="password" id="password" placeholder="Password" name="uloginpassword"></li>
-                    <li><Label><i><a href="#">Create new Account</a></i></Label></li>
+                    <li><input formControlName="psw" (change)="passlogin($event)" type="password" id="password" placeholder="Password" name="uloginpassword"></li>
+                    <li class="text-center text-danger" *ngIf="loginvalidation.get('psw')?.errors&&loginvalidation.get('psw')?.touched"><label>Accept Letters and Number only</label></li>
+                    <li><Label><i><a routerLink="signup" >Create new Account</a></i></Label></li>
                 </ul>
-                <button id="loginbtn" type="submit" class="btn-outline-light">Login</button>  
+                <button (click)="login()"  id="loginbtn" type="submit" class="btn-outline-light">Login</button>  
             </form>
         </div>
     </div>

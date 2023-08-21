@@ -9,6 +9,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { AccountstatementComponent } from './accountstatement/accountstatement.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
+import { DeleteComponent } from './delete/delete.component';
+import { DataPipe } from './dataPipe/data.pipe';
 
 @NgModule({
   declarations: [
@@ -18,13 +23,17 @@ import { AccountstatementComponent } from './accountstatement/accountstatement.c
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    AccountstatementComponent
+    AccountstatementComponent,
+    DeleteComponent,
+    DataPipe,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

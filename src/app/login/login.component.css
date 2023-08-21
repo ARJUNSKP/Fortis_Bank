@@ -59,4 +59,14 @@ form:hover{
         /* width: 20rem; */
         margin: 5rem 0;
     }
+   
+}
+@media screen and (max-width:770px){
+    form{
+        height: 22rem;
+        width: 18rem;
+    }
+    #icon{
+        display: none;
+    }
 }

@@ -11,3 +11,34 @@
 #baner_div p{
     color: rgb(0, 0, 0);
 }
+.c{
+    display:none;
+}
+
+
+#headermain{
+    background-color: #f1f1f1c5;
+    /* box-shadow: 10px 10px 8px 10px #888888; */
+}
+nav{
+    border-bottom: 1px solid #8888883b;
+}
+/* #model{
+    dispaly:flex;
+    flex-diraction:column;
+} */
+#transfer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.s1{
+    color:red
+}
+.s2{
+    color:green
+}
+#transfer form input{
+    margin-bottom: 10px;
+}
